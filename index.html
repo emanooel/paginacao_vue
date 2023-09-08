@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="cursos">
+        <ul>
+            {{num_paginas}}
+            <li v-for="(curso, index) in cursos_paginados" :key="index+curso.id">
+                {{curso.titulo}}
+            </li>
+        </ul>
+        <ul style="display: flex; list-style: none;">
+            <!-- paginar -->
+            <li>
+                <button @click="toFirst">First</button>
+            </li>
+            <li v-for="(n,index) in num_paginas" :key="index+n">
+                <button @click="mudaPagina" :value="n">{{n}}</button>
+            </li>
+            <li>
+                <button @click="toLast">Last</button>
+            </li>
+        </ul>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script type="module" src="main.js"></script>
+</body>
+</html>
